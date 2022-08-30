@@ -3,7 +3,7 @@ import socket
 import sys 
 import time
 
-VERSION="1.0"
+VERSION="2.0"
 AUTHOR="ThomaC"
 
 BLACK="\033[0;30m"
@@ -38,6 +38,10 @@ DESCRIPTION=f'''
 '''+BLUE+'''FOR EDUCATIONAL PURPOSE ONLY.
 '''+WHITE
 
+
+#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
+
 def slowprint(n):
     for word in n + '\n':
         sys.stdout.write(word)
@@ -52,27 +56,38 @@ def slowprint2(n):
         time.sleep(0.03)
 
 
+def run(LOGO, DESCRIPTION):
+    slowprint(LOGO)
+    slowprint2(DESCRIPTION)
+    print("")
 
-slowprint(LOGO)
-slowprint2(DESCRIPTION)
-print("")
+    on_off = 0
 
-def run():
-    video_url = input("Please enter youtube video URL : ")
-    video_info = youtube_dl.YoutubeDL().extract_info(
-        url = video_url,download=False
-    )
-    filename = f"{video_info['title']}.mp3"
-    options={
-        'format':'bestaudio/best',
-        'keepvideo':False,
-        'outtmpl':filename,
-    }
+    while on_off == 0:
+        video_url = input(f"{BLUE}Please enter youtube video URL or Q for quit this program : {PURPLE}")
+        if video_url == "Q":
+            print(f"Have a good day!{WHITE}")
+            on_off = 1
+        else:
+            video_info = youtube_dl.YoutubeDL().extract_info(
+                url = video_url,download=False
+            )
+            filename = f"{video_info['title']}.mp3"
+            options={
+                'format':'bestaudio/best',
+                'keepvideo':False,
+                'outtmpl':filename,
+            }
 
-    with youtube_dl.YoutubeDL(options) as ydl:
-        ydl.download([video_info['webpage_url']])
+            with youtube_dl.YoutubeDL(options) as ydl:
+                ydl.download([video_info['webpage_url']])
 
-    print(f"{GREEN}Download complete... {filename}{WHITE}")
+            print(f"{GREEN}Download complete... {filename}{WHITE}")
+
+#-----------------------------------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------
 
 if __name__=='__main__':
-    run()
+
+        run(LOGO, DESCRIPTION)
+        
