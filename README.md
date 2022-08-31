@@ -1,6 +1,6 @@
 # MP3_YT 🎵
 
-![Screenshot](https://github.com/tomcdev63/MP3_YT/blob/main/data/Capture.JPG?raw=true)
+![Screenshot](https://github.com/tomcdev63/MP3_YT/blob/main/data/Capture0.JPG?raw=true)
 
 <!-- PROJECT LOGO -->
 <br />
