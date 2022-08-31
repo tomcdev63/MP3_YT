@@ -14,7 +14,7 @@ import os
 
 
 TARGET = r"\\192.168.1.148\NAS Tom\MUSIC2"
-PATH_LOCAL = "\MUSIC"
+PATH_LOCAL = "data\MUSIC"
 
 VERSION="2.5"
 AUTHOR="ThomaC"
