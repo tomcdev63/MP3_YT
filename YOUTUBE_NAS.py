@@ -16,7 +16,7 @@ import os
 TARGET = r"\\192.168.1.148\NAS Tom\MUSIC2"
 PATH_LOCAL = "\MUSIC"
 
-VERSION="2.0"
+VERSION="2.5"
 AUTHOR="ThomaC"
 
 BLACK="\033[0;30m"
@@ -136,29 +136,32 @@ def run(LOGO, DESCRIPTION):
 
     on_off = 0
     while on_off == 0:
-        video_url = input(f"{BLUE}Please enter YOUTUBE video URL or 'Q' for quit this program : {PURPLE}")
-        if video_url == "Q":
-            print(f"Have a good day!{WHITE}")
-            on_off = 1
-        else:
-            video_info = youtube_dl.YoutubeDL().extract_info(
-                url = video_url,download=False
-            )
-            filename = f"{video_info['title']}.mp3"
-            options={
-                'format':'bestaudio/best',
-                'keepvideo':False,
-                'outtmpl':filename,
-            }
+        try:
+            video_url = input(f"{BLUE}Please enter YOUTUBE video URL or 'Q' for quit this program : {PURPLE}")
+            if video_url == "Q":
+                slowprint2(f"\nHave a good day!{WHITE}")
+                on_off = 1
+            else:
+                video_info = youtube_dl.YoutubeDL().extract_info(
+                    url = video_url,download=False
+                )
+                filename = f"{video_info['title']}.mp3"
+                options={
+                    'format':'bestaudio/best',
+                    'keepvideo':False,
+                    'outtmpl':filename,
+                }
 
-            with youtube_dl.YoutubeDL(options) as ydl:
-                ydl.download([video_info['webpage_url']])
+                with youtube_dl.YoutubeDL(options) as ydl:
+                    ydl.download([video_info['webpage_url']])
 
-            print(f"{GREEN}Download complete... {filename}{WHITE}")
-            try:
-                shutil.move(filename, path)
-            except:
-                pass
+                print(f"{GREEN}Download complete... {filename}{WHITE}")
+                try:
+                    shutil.move(filename, path)
+                except:
+                    pass
+        except:
+            print(f"{RED}Le format de la vidéo n'est pas ok{WHITE}")
             
 
 #-----------------------------------------------------------------------------------------------------------------------
