@@ -27,6 +27,8 @@ A small script allowing to download a music on youtube then to transfer it in a 
 
 ![Screenshot](https://github.com/tomcdev63/MP3_YT/blob/main/data/Capture2.JPG?raw=true)
 
+![Screenshot](https://github.com/tomcdev63/MP3_YT/blob/main/data/Capture3.JPG?raw=true)
+
 <!-- CONSTRUIT AVEC -->
 ## Construit_avec 
 
