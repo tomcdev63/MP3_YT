@@ -114,8 +114,8 @@ def slowprint2(n):
 
 
 def run(LOGO, DESCRIPTION):
-    # slowprint(LOGO)
-    # slowprint2(DESCRIPTION)
+    slowprint(LOGO)
+    slowprint2(DESCRIPTION)
 
     ### SAMSUNG
     # ports = check_mobile()
