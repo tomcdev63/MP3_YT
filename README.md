@@ -46,11 +46,9 @@ A small script allowing to download a music on youtube then to transfer it in a 
 <!-- USAGE -->
 ## Usage 
 
-* 
-
-    ```sh
-    python YOUTUBE_NAS.py
-    ```
+```sh
+python YOUTUBE_NAS.py
+```
     
 
 
